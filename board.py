@@ -4,8 +4,8 @@ import pygame
 def set_board(win, width, height):
 	board = [[""]]
 	
-	chess_black = (30,30,30)
-	chess_white = (205,205,205)
+	chess_black = (30, 30, 30)
+	chess_white = (205, 205, 205)
 	
 	for i in range(0, 8):
 		board.append([])
@@ -19,6 +19,5 @@ def set_board(win, width, height):
 			else:
 				
 				board[i].append("b")
-				pygame.draw.rect(win, chess_black, pygame.Rect(width // 8 * i, height // 8 * j, width // 8, height // 8))
-
-
+				pygame.draw.rect(win, chess_black,
+								 pygame.Rect(width // 8 * i, height // 8 * j, width // 8, height // 8))
