@@ -1,4 +1,4 @@
 import mainFrame
 
 if __name__ == "__main__":
-	mainFrame.main()
+	mainFrame.main(800, 500, 144)
