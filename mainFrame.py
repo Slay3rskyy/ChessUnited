@@ -1,6 +1,8 @@
 import pygame, sys, random
 from pygame.locals import *
 
+import board
+
 pygame.init()
 
 # Colours
@@ -20,6 +22,7 @@ def main(width, height, fps):
 	# The main game loop
 	while looping:
 		# Get inputs
+		
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				pygame.quit()
@@ -27,8 +30,10 @@ def main(width, height, fps):
 		
 		# Processing
 		# This section will be built out later
-		
 		# Render elements of the game
+		
 		WINDOW.fill(BACKGROUND)
+		
+		board.set_board(WINDOW, width, height)
 		pygame.display.update()
 		fpsClock.tick(fps)
