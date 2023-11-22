@@ -2,6 +2,8 @@ import pygame, sys, random
 from pygame.locals import *
 
 import board
+import king_figure
+import pawn_script
 
 pygame.init()
 
@@ -14,11 +16,11 @@ fpsClock = pygame.time.Clock()
 
 # The main function that controls the game
 def main(width, height, fps):
+
 	looping = True
 	
 	WINDOW = pygame.display.set_mode((width, height))
 	pygame.display.set_caption('My Game!')
-	
 	# The main game loop
 	while looping:
 		# Get inputs
@@ -35,5 +37,8 @@ def main(width, height, fps):
 		WINDOW.fill(BACKGROUND)
 		
 		board.set_board(WINDOW, width, height)
+		king_figure.king(board.figure_locations["E1"][0],board.figure_locations["E1"][1],WINDOW, width)
+		print(board.figure_locations)
+
 		pygame.display.update()
 		fpsClock.tick(fps)
