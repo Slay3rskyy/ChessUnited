@@ -1,5 +1,5 @@
-import pygame, sys, random
 from pygame.locals import *
+import pygame, sys, random
 
 import board
 import king_figure
@@ -16,29 +16,28 @@ fpsClock = pygame.time.Clock()
 
 # The main function that controls the game
 def main(width, height, fps):
+    looping = True
 
-	looping = True
-	
-	WINDOW = pygame.display.set_mode((width, height))
-	pygame.display.set_caption('My Game!')
-	# The main game loop
-	while looping:
-		# Get inputs
-		
-		for event in pygame.event.get():
-			if event.type == QUIT:
-				pygame.quit()
-				sys.exit()
-		
-		# Processing
-		# This section will be built out later
-		# Render elements of the game
-		
-		WINDOW.fill(BACKGROUND)
-		
-		board.set_board(WINDOW, width, height)
-		king_figure.king(board.figure_locations["E1"][0],board.figure_locations["E1"][1],WINDOW, width)
-		print(board.figure_locations)
+    WINDOW = pygame.display.set_mode((width, height))
+    pygame.display.set_caption('My Game!')
+    # The main game loop
+    while looping:
+        # Get inputs
 
-		pygame.display.update()
-		fpsClock.tick(fps)
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+
+        # Processing
+        # This section will be built out later
+        # Render elements of the game
+
+        WINDOW.fill(BACKGROUND)
+
+        board.set_board(WINDOW, width, height)
+        king_figure.king(board.figure_locations["D1"][0], board.figure_locations["D1"][1], WINDOW, width)
+        print(board.figure_locations)
+
+        pygame.display.update()
+        fpsClock.tick(fps)
