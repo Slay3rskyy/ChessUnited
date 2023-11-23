@@ -21,7 +21,7 @@ def set_board(win, width, height):
 	for i in range(0, 8):
 		board.append([])
 		for j in range(0, 8):
-			figure_locations[str(f"{letters[i]}{j+1}")] = ((wb) // 8 * (i+1) + nt - ((wb) // 8)*(5/6), (wb) // 8 * (8-j-1) - nt + (wb) // 16)
+			figure_locations[str(f"{letters[i]}{j+1}")] = ((wb) // 8 * (i+1) + nt - wb // 16, (wb) // 8 * (8-j) - wb //16)
 
 			if (i + j) % 2 == 0:
 
