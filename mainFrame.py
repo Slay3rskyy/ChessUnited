@@ -2,7 +2,7 @@ from pygame.locals import *
 import pygame, sys, random
 
 import board
-import king_figure
+import king_figure, queen_figure, tower_figure, knight_figure, bishop_figure
 import pawn_script
 
 pygame.init()
@@ -37,6 +37,13 @@ def main(width, height, fps):
 
         board.set_board(WINDOW, width, height)
         king_figure.king(board.figure_locations["D1"][0], board.figure_locations["D1"][1], WINDOW, width)
+        queen_figure.queen(board.figure_locations["E1"][0], board.figure_locations["E1"][1], WINDOW, width)
+        tower_figure.tower(board.figure_locations["A1"][0], board.figure_locations["A1"][1], WINDOW, width)
+        tower_figure.tower(board.figure_locations["H1"][0], board.figure_locations["H1"][1], WINDOW, width)
+        knight_figure.knight(board.figure_locations["B1"][0], board.figure_locations["B1"][1], WINDOW, width)
+        knight_figure.knight(board.figure_locations["G1"][0], board.figure_locations["G1"][1], WINDOW, width)
+        bishop_figure.bishop(board.figure_locations["C1"][0], board.figure_locations["C1"][1], WINDOW, width)
+        bishop_figure.bishop(board.figure_locations["F1"][0], board.figure_locations["F1"][1], WINDOW, width)
         print(board.figure_locations)
 
         pygame.display.update()
