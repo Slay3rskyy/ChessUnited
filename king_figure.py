@@ -8,13 +8,15 @@ def king(x: int, y: int, window: pygame.display, width: int, ):
 	king_image = pygame.image.load(
 		"resources/king_image.png").convert_alpha()
 	king_figure = pygame.transform.scale(king_image, KING_SIZE)
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
 	
 	window.blit(king_figure, (board.figure_locations[x][0] - KING_SIZE[0] // 2, board.figure_locations[x][1] - KING_SIZE[1] // 2))
-	if pygame.mouse.get_pressed()[0]:
-		if ((pygame.mouse.get_pos()[0] >= (board.figure_locations[x][0] - KING_SIZE[0] // 2)) and (
-				pygame.mouse.get_pos()[0] <= (board.figure_locations[x][0] + KING_SIZE[0] // 2))) and (
-				pygame.mouse.get_pos()[1] >= (board.figure_locations[x][1] - KING_SIZE[1] // 2)) and (
-				pygame.mouse.get_pos()[1] <= (board.figure_locations[x][1] + KING_SIZE[1] // 2)):
+	if click[0]:
+		if ((mouse[0] >= (board.figure_locations[x][0] - KING_SIZE[0] // 2)) and (
+				mouse[0] <= (board.figure_locations[x][0] + KING_SIZE[0] // 2))) and (
+				mouse[1] >= (board.figure_locations[x][1] - KING_SIZE[1] // 2)) and (
+				mouse[1] <= (board.figure_locations[x][1] + KING_SIZE[1] // 2)):
 			if "8" not in x:
 				pygame.draw.circle(window, board.p_color, (board.figure_locations[x[0] + str(int(x[1]) + 1)][0],
 														board.figure_locations[x[0] + str(int(x[1]) + 1)][1]), 5, 5)
