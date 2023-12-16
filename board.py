@@ -4,7 +4,7 @@ import pawn_script
 
 
 def set_board(win, width, height):
-	global board
+	global board, p_color, letters
 	board = [[""]]
 	NOTATION_CONST = 25
 	letters = "ABCDEFGH"
@@ -15,6 +15,7 @@ def set_board(win, width, height):
 	chess_black = (30, 30, 30)
 	chess_white = (205, 205, 205)
 	notation_color = (127, 127, 127)
+	p_color = (255, 0, 0) # color of circles, which define tiles where you can go by pawn
 	nt = width // NOTATION_CONST + width % NOTATION_CONST  # notation width
 	font = pygame.font.SysFont('timesnewroman', width // 25)
 	font_color = (30, 30, 30)
@@ -67,5 +68,3 @@ def set_board(win, width, height):
 			pygame.draw.rect(win, chess_black,
 							 pygame.Rect(wb // 8 * i + (nt - wb // 160), wb,
 										 wb // 80, nt))
-	
-	# DOKOŃCZYĆ

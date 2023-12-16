@@ -36,7 +36,7 @@ def main(width, height, fps):
 		WINDOW.fill(BACKGROUND)
 		
 		board.set_board(WINDOW, width, height)
-		king_figure.king(board.figure_locations["D1"][0], board.figure_locations["D1"][1], WINDOW, width)
+		king_figure.king("D1", "D1", WINDOW, width)
 		# print(board.figure_locations)
 		
 		pygame.display.update()
