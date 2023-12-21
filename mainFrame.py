@@ -21,6 +21,7 @@ def main(width, height, fps):
 	WINDOW = pygame.display.set_mode((width, height))
 	pygame.display.set_caption('My Game!')
 	# The main game loop
+
 	while looping:
 		# Get inputs
 		
@@ -34,7 +35,7 @@ def main(width, height, fps):
 		# Render elements of the game
 		
 		WINDOW.fill(BACKGROUND)
-		
+
 		board.set_board(WINDOW, width, height)
 		king_figure.king("D1", "D1", WINDOW, width)
 		# print(board.figure_locations)
