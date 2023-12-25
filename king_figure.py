@@ -17,38 +17,7 @@ def king(x: int, y: int, window: pygame.display, width: int):
 				mouse[0] <= (board.figure_locations[x][0] + KING_SIZE[0] // 2))) and (
 				mouse[1] >= (board.figure_locations[x][1] - KING_SIZE[1] // 2)) and (
 				mouse[1] <= (board.figure_locations[x][1] + KING_SIZE[1] // 2)):
-			if "8" not in x:
-				pygame.draw.circle(window, board.p_color, (board.figure_locations[x[0] + str(int(x[1]) + 1)][0],
-														board.figure_locations[x[0] + str(int(x[1]) + 1)][1]), 5, 5)
-			if "1" not in x:
-				pygame.draw.circle(window, board.p_color, (board.figure_locations[x[0] + str(int(x[1]) - 1)][0],
-													   board.figure_locations[x[0] + str(int(x[1]) - 1)][1]), 5, 5)
-			if "A" not in x:
-				pygame.draw.circle(window, board.p_color,(board.figure_locations[board.letters[board.letters.index(x[0]) - 1] + x[1]][0],
-														   board.figure_locations[board.letters[board.letters.index(x[0]) - 1] + x[1]][1]), 5, 5)
-			if "H" not in x:
-				pygame.draw.circle(window, board.p_color,(board.figure_locations[board.letters[board.letters.index(x[0]) + 1] + x[1]][0],
-														board.figure_locations[board.letters[board.letters.index(x[0]) + 1] + x[1]][1]), 5,5)
-			if "A" not in x and "8" not in x:
-				pygame.draw.circle(window, board.p_color,
-								   (board.figure_locations[board.letters[board.letters.index(x[0]) - 1] + str(int(x[1]) + 1)][0],
-									board.figure_locations[board.letters[board.letters.index(x[0]) - 1] + str(int(x[1]) + 1)][1]), 5,
-								   5)
-			if "H" not in x and "8" not in x:
-				pygame.draw.circle(window, board.p_color,
-								   (board.figure_locations[board.letters[board.letters.index(x[0]) + 1] + str(int(x[1]) + 1)][0],
-									board.figure_locations[board.letters[board.letters.index(x[0]) + 1] + str(int(x[1]) + 1)][1]), 5,
-								   5)
-			if "A" not in x and "1" not in x:
-				pygame.draw.circle(window, board.p_color,
-								   (board.figure_locations[board.letters[board.letters.index(x[0]) - 1] + str(int(x[1]) - 1)][0],
-									board.figure_locations[board.letters[board.letters.index(x[0]) - 1] + str(int(x[1]) - 1)][1]), 5,
-								   5)
-			if "H" not in x and "1" not in x:
-				pygame.draw.circle(window, board.p_color,
-								   (board.figure_locations[board.letters[board.letters.index(x[0]) + 1] + str(int(x[1]) - 1)][0],
-									board.figure_locations[board.letters[board.letters.index(x[0]) + 1] + str(int(x[1]) - 1)][1]), 5,
-								   5)
+			circles(x, window)
 		# for i in board:
 		# 	for j in board[i]:
 		# 		try:
@@ -61,9 +30,21 @@ def king_move(x: int, y: int,window: pygame.display, width: int,king_fig:pygame.
 	click = pygame.mouse.get_pressed()[0]
 	if click:
 		king_showing = bool
-		if not ((base_fig_location[0] >= mouse[0]-KING_SIZE[0]//2 and base_fig_location[1] >= mouse[1]-KING_SIZE[1]//2) and (base_fig_location[0] <= mouse[0]+ KING_SIZE[0]//2  and base_fig_location[1] <= mouse[1]+KING_SIZE[1]//2)):
+		if not ((base_fig_location[0] >= mouse[0]-KING_SIZE[0]//2 and base_fig_location[1] >= mouse[1]-KING_SIZE[1]//2) and
+				(base_fig_location[0] <= mouse[0]+ KING_SIZE[0]//2  and base_fig_location[1] <= mouse[1]+KING_SIZE[1]//2)):
 			king_showing = False
 		else:
 			king_showing = True
 		if king_showing:
 			window.blit(king_fig, (mouse[0] - KING_SIZE[0] // 2, mouse[1] - KING_SIZE[1] // 2))
+
+def circles(x, window):
+	for i in range(0, 3):
+		for k in range(0, 3):
+			if i != 1 or k != 1:
+				try:
+					pygame.draw.circle(window, board.p_color,
+					(board.figure_locations[board.letters[board.letters.index(x[0]) - 1 + i] + str(int(x[1]) - 1 + k)][0],
+							board.figure_locations[board.letters[board.letters.index(x[0]) - 1 + i] + str(int(x[1]) - 1 + k)][1]),
+							5,5)
+				except: pass
