@@ -13,7 +13,7 @@ BACKGROUND = (255, 255, 255)
 # Game Setup
 fpsClock = pygame.time.Clock()
 
-
+l_king = 1
 # The main function that controls the game
 def main(width, height, fps):
 	looping = True
@@ -21,7 +21,6 @@ def main(width, height, fps):
 	WINDOW = pygame.display.set_mode((width, height))
 	pygame.display.set_caption('My Game!')
 	# The main game loop
-
 	while looping:
 		# Get inputs
 		

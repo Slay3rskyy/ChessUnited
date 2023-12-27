@@ -1,4 +1,6 @@
 import pygame
+
+import mainFrame
 import resources
 import board
 
@@ -11,13 +13,16 @@ def king(x: int, y: int, window: pygame.display, width: int):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 	window.blit(king_figure, (board.figure_locations[x][0] - KING_SIZE[0] // 2, board.figure_locations[x][1] - KING_SIZE[1] // 2))
-	king_move(x, y, window, width, king_figure, board.figure_locations[x])
+	#king_move(x, y, window, width, king_figure, board.figure_locations[x])
 	if click[0]:
 		if ((mouse[0] >= (board.figure_locations[x][0] - KING_SIZE[0] // 2)) and (
 				mouse[0] <= (board.figure_locations[x][0] + KING_SIZE[0] // 2))) and (
 				mouse[1] >= (board.figure_locations[x][1] - KING_SIZE[1] // 2)) and (
 				mouse[1] <= (board.figure_locations[x][1] + KING_SIZE[1] // 2)):
-			circles(x, window)
+			mainFrame.l_king *= -1
+	if mainFrame.l_king < 0:
+		circles(x, window)
+
 		# for i in board:
 		# 	for j in board[i]:
 		# 		try:
